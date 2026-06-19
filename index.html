@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirwan Alkhatiri — IT Auditor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0d1b2a;
+      --blue:   #1b4f72;
+      --accent: #2e86de;
+      --light:  #f0f4f8;
+      --white:  #ffffff;
+      --text:   #2d3748;
+      --muted:  #718096;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: var(--white);
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 auto 24px;
+      border: 4px solid rgba(255,255,255,0.25);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .title-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .tagline {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-row {
+      margin-top: 32px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-outline  { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+
+    /* ── STATS STRIP ──────────────────────────────────── */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-item {
+      flex: 1 1 160px;
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-item .num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-item .label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* ── MAIN GRID ────────────────────────────────────── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 680px) {
+      .container { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h2 .icon {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── ABOUT ────────────────────────────────────────── */
+    .about p {
+      color: var(--text);
+      font-size: 0.97rem;
+      margin-bottom: 12px;
+    }
+
+    /* ── SKILLS ───────────────────────────────────────── */
+    .skill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      padding: 6px 14px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--blue);
+    }
+
+    /* ── EXPERIENCE ───────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+    }
+
+    .tl-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 6px;
+      position: relative;
+    }
+    .tl-dot::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
+      width: 2px;
+      height: calc(100% + 14px);
+      background: var(--border);
+    }
+    .timeline-item:last-child .tl-dot::after { display: none; }
+
+    .tl-body h3 { font-size: 0.97rem; font-weight: 600; color: var(--navy); }
+    .tl-body .org { font-size: 0.87rem; color: var(--accent); font-weight: 500; }
+    .tl-body .period { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    .tl-body p { font-size: 0.87rem; color: var(--muted); margin-top: 6px; }
+
+    /* ── CERTIFICATIONS ───────────────────────────────── */
+    .cert-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: var(--light);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .cert-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .cert-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+    .cert-info span { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── CONTACT ──────────────────────────────────────── */
+    .contact-list { display: flex; flex-direction: column; gap: 14px; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.93rem;
+    }
+
+    .contact-item .ci-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .contact-item a { color: var(--accent); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="avatar">M</div>
+    <h1>Miracau</h1>
+    <div class="title-badge">IT Auditor &amp; Assurance Professional</div>
+    <p class="tagline">
+      Bridging technology and governance — delivering risk-based IT audit insights that protect organizations and drive confident decision-making.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Get in Touch</a>
+      <a class="btn btn-outline" href="#experience">View Experience</a>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="num">12+</div>
+      <div class="label">Years of Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">80+</div>
+      <div class="label">Audits Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">5</div>
+      <div class="label">Certifications</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">15+</div>
+      <div class="label">Frameworks Mastered</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- ABOUT -->
+    <div class="card full-width about">
+      <h2><span class="icon">&#128100;</span> About Me</h2>
+      <p>
+        I am a seasoned IT Auditor with over a decade of experience evaluating information systems, cybersecurity controls, and IT governance frameworks across public-sector and financial institutions. My work focuses on translating complex technical risks into clear, actionable findings for executive stakeholders.
+      </p>
+      <p>
+        With deep expertise in standards such as COBIT, ISO 27001, NIST CSF, and ITIL, I have led end-to-end audit engagements covering ERP systems, cloud infrastructure, data governance, and third-party risk. I thrive at the intersection of technology and compliance — ensuring systems are not just functional, but trustworthy.
+      </p>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="card">
+      <h2><span class="icon">&#9881;</span> Core Skills</h2>
+      <div class="skill-grid">
+        <span class="skill-tag">IT General Controls</span>
+        <span class="skill-tag">Cybersecurity Audit</span>
+        <span class="skill-tag">COBIT 2019</span>
+        <span class="skill-tag">ISO 27001</span>
+        <span class="skill-tag">NIST CSF</span>
+        <span class="skill-tag">SOX IT Compliance</span>
+        <span class="skill-tag">Cloud Security Review</span>
+        <span class="skill-tag">Data Analytics (ACL/IDEA)</span>
+        <span class="skill-tag">ERP Audit (SAP / Oracle)</span>
+        <span class="skill-tag">Third-Party Risk</span>
+        <span class="skill-tag">Penetration Testing Review</span>
+        <span class="skill-tag">Business Continuity</span>
+        <span class="skill-tag">IT Risk Assessment</span>
+        <span class="skill-tag">Governance Frameworks</span>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="card">
+      <h2><span class="icon">&#127942;</span> Certifications</h2>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-icon">&#128269;</div>
+          <div class="cert-info">
+            <h4>CISA — Certified Information Systems Auditor</h4>
+            <span>ISACA &middot; Active</span>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#128274;</div>
+          <div class="cert-info">
+            <h4>CISSP — Certified Information Systems Security Professional</h4>
+            <span>ISC&sup2; &middot; Active</span>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#128200;</div>
+          <div class="cert-info">
+            <h4>CRISC — Certified in Risk &amp; Information Systems Control</h4>
+            <span>ISACA &middot; Active</span>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#9729;</div>
+          <div class="cert-info">
+            <h4>AWS Certified Security – Specialty</h4>
+            <span>Amazon Web Services &middot; Active</span>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">&#128203;</div>
+          <div class="cert-info">
+            <h4>ISO 27001 Lead Auditor</h4>
+            <span>PECB &middot; Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="card full-width" id="experience">
+      <h2><span class="icon">&#128188;</span> Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>Senior IT Auditor</h3>
+            <div class="org">Ministry of Finance — Inspectorate General</div>
+            <div class="period">2019 – Present</div>
+            <p>Lead risk-based IT audits of core financial systems, ERP implementations, and cybersecurity posture. Produced findings adopted in national IT governance policy revisions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>IT Audit Manager</h3>
+            <div class="org">State-Owned Enterprise Supervisory Board</div>
+            <div class="period">2015 – 2019</div>
+            <p>Managed a team of 6 auditors conducting annual IT general controls reviews across 12 SOEs. Introduced data analytics tooling that reduced sampling time by 40%.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>IT Auditor</h3>
+            <div class="org">National Audit Board (BPK)</div>
+            <div class="period">2012 – 2015</div>
+            <p>Conducted application controls reviews and access management audits for government information systems. Supported performance audits with technical findings on data integrity.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3>IT Risk Consultant</h3>
+            <div class="org">Big Four Consulting Firm</div>
+            <div class="period">2010 – 2012</div>
+            <p>Delivered SOX IT compliance assessments and ISO 27001 gap analyses for banking and insurance clients across Southeast Asia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card full-width" id="contact">
+      <h2><span class="icon">&#9993;</span> Contact</h2>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="ci-icon">&#128231;</div>
+          <span><a href="mailto:miracau@example.com">mirwan.alkhatiri@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">&#128241;</div>
+          <span>+62 812-9000-9946</span>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">&#127757;</div>
+          <span>Jakarta, Indonesia</span>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">&#128101;</div>
+          <span><a href="#">linkedin.com/in/mirwan-alkhatiri</a></span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Mirwan Alkhatiri. All rights reserved.
+  </footer>
+
+</body>
+</html>

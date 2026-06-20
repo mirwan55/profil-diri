@@ -28,7 +28,7 @@
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
       color: var(--white);
-      padding: 80px 24px 60px;
+      padding: 140px 24px 60px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -150,6 +150,72 @@
     body.light-mode .about p { color: #2d2d2d; }
     body.light-mode footer { background: #2d2d44; }
 
+    /* ── DROPDOWN NAV ── */
+    .nav-menu { display: flex; align-items: center; gap: 8px; }
+
+    .nav-item { position: relative; }
+
+    .nav-link {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: transparent;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); color: var(--accent); }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--navy);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .nav-item:hover .dropdown { display: flex; }
+
+    .dropdown a {
+      padding: 10px 16px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .dropdown a:hover { background: rgba(201,168,76,0.15); color: var(--accent); }
+
+    .dropdown-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 4px 0;
+    }
+
+    .coming-soon {
+      padding: 10px 16px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.78rem;
+      font-style: italic;
+    }
+
+    /* ── NAVBAR SCROLL STATE ── */
+    #stickyNav { transition: background 0.3s, border-color 0.3s; }
+    #stickyNav.scrolled { background: var(--navy); border-bottom: 2px solid var(--accent); }
+    #stickyNav:not(.scrolled) { background: transparent; border-bottom: 2px solid transparent; box-shadow: none; }
+    #navBrand { transition: opacity 0.3s; }
+    #stickyNav:not(.scrolled) #navBrand { opacity: 0; pointer-events: none; }
+
     footer { text-align: center; padding: 32px 24px; background: var(--navy); color: rgba(255,255,255,0.45); font-size: 0.85rem; }
   </style>
 </head>
@@ -161,21 +227,53 @@
     background:var(--navy);
     border-bottom:2px solid var(--accent);
     padding:10px 32px;
-    display:none;
+    display:flex;
     align-items:center;
     justify-content:space-between;
     box-shadow:0 2px 16px rgba(0,0,0,0.4);
   ">
-    <div style="display:flex;align-items:center;gap:12px;">
+    <!-- Kiri: foto + nama -->
+    <div id="navBrand" style="display:flex;align-items:center;gap:12px;">
       <img src="assets/foto-profil.jpg" style="width:38px;height:38px;border-radius:50%;border:2px solid var(--accent);object-fit:cover;">
       <div>
         <div style="color:#fff;font-weight:700;font-size:0.9rem;line-height:1.2;">Mirwan Alkhatiri</div>
         <div style="color:var(--accent);font-size:0.7rem;letter-spacing:0.5px;text-transform:uppercase;">Internal Auditor & IT Governance Professional</div>
       </div>
     </div>
-    <div style="display:flex;align-items:center;gap:10px;">
-      <a href="#contact" style="background:var(--accent);color:var(--navy);padding:7px 18px;border-radius:999px;font-size:0.82rem;font-weight:700;text-decoration:none;">Get in Touch</a>
-      <button onclick="toggleMode()" id="modeBtn" style="background:transparent;border:1px solid var(--accent);color:var(--accent);padding:7px 16px;border-radius:999px;cursor:pointer;font-size:0.82rem;font-weight:700;">☀️ Light Mode</button>
+
+    <!-- Kanan: menu + tombol -->
+    <div style="display:flex;align-items:center;gap:6px;">
+
+      <!-- Other Application -->
+      <div class="nav-item">
+        <button class="nav-link">Other App ▾</button>
+        <div class="dropdown">
+          <a href="https://badminton.mirwanalk.my.id" target="_blank">🏸 Badminton</a>
+          <div class="dropdown-divider"></div>
+          <span class="coming-soon">Memory Games — Coming Soon</span>
+          <span class="coming-soon">Perception Games — Coming Soon</span>
+        </div>
+      </div>
+
+      <!-- Portofolio App -->
+      <div class="nav-item">
+        <button class="nav-link">Portofolio App ▾</button>
+        <div class="dropdown">
+          <span class="coming-soon">HR Buddy — Coming Soon</span>
+        </div>
+      </div>
+
+      <!-- Tulisan -->
+      <div class="nav-item">
+        <a class="nav-link" href="tulisan.html">Tulisan</a>
+      </div>
+
+      <!-- Get in Touch -->
+      <a href="#contact" style="background:var(--accent);color:var(--navy);padding:7px 18px;border-radius:999px;font-size:0.82rem;font-weight:700;text-decoration:none;white-space:nowrap;">Get in Touch</a>
+
+      <!-- Mode Toggle -->
+      <button onclick="toggleMode()" id="modeBtn" style="background:transparent;border:1px solid var(--accent);color:var(--accent);padding:7px 16px;border-radius:999px;cursor:pointer;font-size:0.82rem;font-weight:700;white-space:nowrap;">☀️ Light</button>
+
     </div>
   </nav>
 
@@ -341,15 +439,17 @@
   function toggleMode() {
     document.body.classList.toggle('light-mode');
     document.querySelectorAll('#modeBtn').forEach(btn => {
-      btn.textContent = document.body.classList.contains('light-mode') ? '🌙 Dark Mode' : '☀️ Light Mode';
+      btn.textContent = document.body.classList.contains('light-mode') ? '🌙 Dark' : '☀️ Light';
     });
   }
 
-  const hero = document.querySelector('.hero');
   const nav = document.getElementById('stickyNav');
-
   window.addEventListener('scroll', () => {
-    nav.style.display = window.scrollY > hero.offsetHeight - 60 ? 'flex' : 'none';
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
   });
 </script>
 

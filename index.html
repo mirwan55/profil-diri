@@ -311,6 +311,22 @@
     .contact-item a { color: var(--accent); text-decoration: none; }
     .contact-item a:hover { text-decoration: underline; }
 
+    /* ── LIGHT MODE ───────────────────────────────── */
+      body.light-mode { background: #f5f3ef; color: #2d2d2d; }
+      body.light-mode .hero { background: linear-gradient(135deg, #2d2d44 0%, #4a4a6a 100%); }
+      body.light-mode .stats { background: #ffffff; }
+      body.light-mode .stat-item { background: #ffffff; color: #2d2d2d; }
+      body.light-mode .stat-item .label { color: #7a7a7a; }
+      body.light-mode .card { background: #ffffff; border-color: #e8e4dc; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+      body.light-mode .card h2 { color: #1a1a2e; }
+      body.light-mode .skill-tag { background: #f0ede6; border-color: #ddd8cc; color: #2d2d44; }
+      body.light-mode .cert-item { background: #f0ede6; border-color: #ddd8cc; }
+      body.light-mode .cert-info h4 { color: #1a1a2e; }
+      body.light-mode .tl-body h3 { color: #1a1a2e; }
+      body.light-mode .about p { color: #2d2d2d; }
+      body.light-mode footer { background: #2d2d44; }
+      body.light-mode #modeBtn { background: #1a1a2e; color: #c9a84c; }
+
     /* ── FOOTER ───────────────────────────────────────── */
     footer {
       text-align: center;
@@ -322,6 +338,23 @@
   </style>
 </head>
 <body>
+
+  <div style="position:fixed; top:20px;right:24px;z-index:999;">
+    <button onclick="toggleMode()" id="modeBtn"
+    style="background: #c9a84c;
+    border: none;
+    color: #1a1a2e;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+    backdrop-filter: blur(8px);
+    ">Light Mode</button>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -489,6 +522,14 @@
   <footer>
     &copy; 2026 Mirwan Alkhatiri. All rights reserved.
   </footer>
+
+<script>
+  function toggleMode() {
+    document.body.classList.toggle('light-mode');
+    const btn = document.getElementById('modeBtn');
+    btn.textContent = document.body.classList.contains('light-mode') ? '🌙 Dark Mode' : '☀️ Light Mode';
+  }
+</script>
 
 </body>
 </html>

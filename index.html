@@ -8,15 +8,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-    --navy:   #1a1a2e;
-    --blue:   #2d2d44;
-    --accent: #c9a84c;
-    --light:  #f5f3ef;
-    --white:  #ffffff;
-    --text:   #2d2d2d;
-    --muted:  #7a7a7a;
-    --border: #e8e4dc;
-}
+      --navy:   #1a1a2e;
+      --blue:   #2d2d44;
+      --accent: #c9a84c;
+      --light:  #f5f3ef;
+      --white:  #ffffff;
+      --text:   #2d2d2d;
+      --muted:  #7a7a7a;
+      --border: #e8e4dc;
+    }
 
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
@@ -25,7 +25,6 @@
       line-height: 1.6;
     }
 
-    /* ── HERO ─────────────────────────────────────────── */
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
       color: var(--white);
@@ -43,328 +42,133 @@
     }
 
     .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--white);
-      margin: 0 auto 24px;
-      border: 4px solid rgba(255,255,255,0.25);
-      position: relative;
-      z-index: 1;
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--accent); display: flex;
+      align-items: center; justify-content: center;
+      font-size: 48px; font-weight: 700; color: var(--white);
+      margin: 0 auto 24px; border: 4px solid rgba(255,255,255,0.25);
+      position: relative; z-index: 1;
     }
 
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      position: relative;
-      z-index: 1;
-    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.5px; position: relative; z-index: 1; }
 
     .hero .title-badge {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 18px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 999px;
-      font-size: 0.95rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
+      display: inline-block; margin-top: 10px; padding: 6px 18px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px; font-size: 0.95rem; letter-spacing: 1px;
+      text-transform: uppercase; position: relative; z-index: 1;
     }
 
     .hero .tagline {
-      margin-top: 20px;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      z-index: 1;
+      margin-top: 20px; font-size: 1.1rem; color: rgba(255,255,255,0.75);
+      max-width: 520px; margin-left: auto; margin-right: auto;
+      position: relative; z-index: 1;
     }
 
     .cta-row {
-      margin-top: 32px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
+      margin-top: 32px; display: flex; gap: 12px;
+      justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
-      cursor: pointer;
-    }
+    .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; cursor: pointer; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
-    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary { background: var(--accent); color: var(--navy); }
     .btn-outline  { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
 
-    /* ── STATS STRIP ──────────────────────────────────── */
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .stat-item {
-      flex: 1 1 160px;
-      padding: 28px 20px;
-      text-align: center;
-      border-right: 1px solid var(--border);
-    }
+    .stats { display: flex; flex-wrap: wrap; justify-content: center; background: var(--white); border-bottom: 1px solid var(--border); }
+    .stat-item { flex: 1 1 160px; padding: 28px 20px; text-align: center; border-right: 1px solid var(--border); }
     .stat-item:last-child { border-right: none; }
+    .stat-item .num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+    .stat-item .label { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
 
-    .stat-item .num {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .stat-item .label {
-      font-size: 0.82rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @media (max-width: 680px) { .container { grid-template-columns: 1fr; } }
 
-    /* ── MAIN GRID ────────────────────────────────────── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 60px 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
+    .card { background: var(--white); border-radius: 12px; padding: 32px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .card.full-width { grid-column: 1 / -1; }
+    .card h2 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); display: flex; align-items: center; gap: 8px; }
+    .card h2 .icon { width: 28px; height: 28px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
 
-    @media (max-width: 680px) {
-      .container { grid-template-columns: 1fr; }
-    }
+    .about p { color: var(--text); font-size: 0.97rem; margin-bottom: 12px; }
 
-    .card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 32px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
+    .skill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag { padding: 6px 14px; background: var(--light); border: 1px solid var(--border); border-radius: 6px; font-size: 0.83rem; font-weight: 500; color: var(--blue); }
 
-    .card.full-width {
-      grid-column: 1 / -1;
-    }
-
-    .card h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card h2 .icon {
-      width: 28px;
-      height: 28px;
-      background: var(--accent);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    /* ── ABOUT ────────────────────────────────────────── */
-    .about p {
-      color: var(--text);
-      font-size: 0.97rem;
-      margin-bottom: 12px;
-    }
-
-    /* ── SKILLS ───────────────────────────────────────── */
-    .skill-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-tag {
-      padding: 6px 14px;
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: var(--blue);
-    }
-
-    /* ── EXPERIENCE ───────────────────────────────────── */
     .timeline { display: flex; flex-direction: column; gap: 20px; }
-
-    .timeline-item {
-      display: flex;
-      gap: 14px;
-    }
-
-    .tl-dot {
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 6px;
-      position: relative;
-    }
-    .tl-dot::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 10px;
-      transform: translateX(-50%);
-      width: 2px;
-      height: calc(100% + 14px);
-      background: var(--border);
-    }
+    .timeline-item { display: flex; gap: 14px; }
+    .tl-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 6px; position: relative; }
+    .tl-dot::after { content: ''; position: absolute; left: 50%; top: 10px; transform: translateX(-50%); width: 2px; height: calc(100% + 14px); background: var(--border); }
     .timeline-item:last-child .tl-dot::after { display: none; }
-
     .tl-body h3 { font-size: 0.97rem; font-weight: 600; color: var(--navy); }
     .tl-body .org { font-size: 0.87rem; color: var(--accent); font-weight: 500; }
     .tl-body .period { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
     .tl-body p { font-size: 0.87rem; color: var(--muted); margin-top: 6px; }
 
-    /* ── CERTIFICATIONS ───────────────────────────────── */
     .cert-list { display: flex; flex-direction: column; gap: 12px; }
-
-    .cert-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      background: var(--light);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    .cert-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
+    .cert-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--light); border-radius: 8px; border: 1px solid var(--border); }
+    .cert-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
     .cert-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
     .cert-info span { font-size: 0.8rem; color: var(--muted); }
 
-    /* ── CONTACT ──────────────────────────────────────── */
     .contact-list { display: flex; flex-direction: column; gap: 14px; }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.93rem;
-    }
-
-    .contact-item .ci-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: var(--light);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
+    .contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.93rem; }
+    .contact-item .ci-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
     .contact-item a { color: var(--accent); text-decoration: none; }
     .contact-item a:hover { text-decoration: underline; }
 
-    /* ── LIGHT MODE ───────────────────────────────── */
-      body.light-mode { background: #f5f3ef; color: #2d2d2d; }
-      body.light-mode .hero { background: linear-gradient(135deg, #2d2d44 0%, #4a4a6a 100%); }
-      body.light-mode .stats { background: #ffffff; }
-      body.light-mode .stat-item { background: #ffffff; color: #2d2d2d; }
-      body.light-mode .stat-item .label { color: #7a7a7a; }
-      body.light-mode .card { background: #ffffff; border-color: #e8e4dc; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-      body.light-mode .card h2 { color: #1a1a2e; }
-      body.light-mode .skill-tag { background: #f0ede6; border-color: #ddd8cc; color: #2d2d44; }
-      body.light-mode .cert-item { background: #f0ede6; border-color: #ddd8cc; }
-      body.light-mode .cert-info h4 { color: #1a1a2e; }
-      body.light-mode .tl-body h3 { color: #1a1a2e; }
-      body.light-mode .about p { color: #2d2d2d; }
-      body.light-mode footer { background: #2d2d44; }
-      body.light-mode #modeBtn { background: #1a1a2e; color: #c9a84c; }
+    /* ── LIGHT MODE ── */
+    body.light-mode { background: #f5f3ef; color: #2d2d2d; }
+    body.light-mode .hero { background: linear-gradient(135deg, #2d2d44 0%, #4a4a6a 100%); }
+    body.light-mode .stats { background: #ffffff; }
+    body.light-mode .stat-item { background: #ffffff; color: #2d2d2d; }
+    body.light-mode .stat-item .label { color: #7a7a7a; }
+    body.light-mode .card { background: #ffffff; border-color: #e8e4dc; }
+    body.light-mode .card h2 { color: #1a1a2e; }
+    body.light-mode .skill-tag { background: #f0ede6; border-color: #ddd8cc; color: #2d2d44; }
+    body.light-mode .cert-item { background: #f0ede6; border-color: #ddd8cc; }
+    body.light-mode .cert-info h4 { color: #1a1a2e; }
+    body.light-mode .tl-body h3 { color: #1a1a2e; }
+    body.light-mode .about p { color: #2d2d2d; }
+    body.light-mode footer { background: #2d2d44; }
 
-    /* ── FOOTER ───────────────────────────────────────── */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      background: var(--navy);
-      color: rgba(255,255,255,0.45);
-      font-size: 0.85rem;
-    }
+    footer { text-align: center; padding: 32px 24px; background: var(--navy); color: rgba(255,255,255,0.45); font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-  <div style="position:fixed; top:20px;right:24px;z-index:999;">
-    <button onclick="toggleMode()" id="modeBtn"
-    style="background: #c9a84c;
-    border: none;
-    color: #1a1a2e;
-    padding: 10px 20px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.15s, box-shadow 0.15s;
-    backdrop-filter: blur(8px);
-    ">Light Mode</button>
-  </div>
+  <!-- STICKY NAVBAR -->
+  <nav id="stickyNav" style="
+    position:fixed;top:0;left:0;right:0;z-index:999;
+    background:var(--navy);
+    border-bottom:2px solid var(--accent);
+    padding:10px 32px;
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 2px 16px rgba(0,0,0,0.4);
+  ">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/foto-profil.jpg" style="width:38px;height:38px;border-radius:50%;border:2px solid var(--accent);object-fit:cover;">
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:0.9rem;line-height:1.2;">Mirwan Alkhatiri</div>
+        <div style="color:var(--accent);font-size:0.7rem;letter-spacing:0.5px;text-transform:uppercase;">Internal Auditor & IT Governance Professional</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="#contact" style="background:var(--accent);color:var(--navy);padding:7px 18px;border-radius:999px;font-size:0.82rem;font-weight:700;text-decoration:none;">Get in Touch</a>
+      <button onclick="toggleMode()" id="modeBtn" style="background:transparent;border:1px solid var(--accent);color:var(--accent);padding:7px 16px;border-radius:999px;cursor:pointer;font-size:0.82rem;font-weight:700;">☀️ Light Mode</button>
+    </div>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="avatar">
-      <img src="assets/foto-profil.jpg" alt="Mirwan Alkhatiri" style="width: 100%;height: 100%;object-fit: cover;border-radius: 50%;" />
+      <img src="assets/foto-profil.jpg" alt="Mirwan Alkhatiri" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
     </div>
     <h1>Mirwan Alkhatiri</h1>
     <div class="title-badge">Internal Auditor &amp; IT Governance Professional</div>
     <p class="tagline">
-      Auditor dengan latar belakang Akuntansi dan Sistem Informasi. Percaya bahwa audit yang baik bukan soal temuan - tapi soal menjaga kepercayaan, menjaga dan memberikan nilai tambah.
+      Auditor dengan latar belakang Akuntansi dan Sistem Informasi. Percaya bahwa audit yang baik bukan soal temuan - tapi soal menjaga kepercayaan dan memberikan nilai tambah.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#contact">Get in Touch</a>
@@ -372,49 +176,29 @@
     </div>
   </section>
 
-  <!-- STATS STRIP -->
+  <!-- STATS -->
   <div class="stats">
-    <div class="stat-item">
-      <div class="num">3+</div>
-      <div class="label">Tahun sebagai Auditor</div>
-    </div>
-    <div class="stat-item">
-      <div class="num">5+</div>
-      <div class="label">Sertifikat Profesional</div>
-    </div>
-    <div class="stat-item">
-      <div class="num">2</div>
-      <div class="label">Penghargaan Kemenkeu</div>
-    </div>
-    <div class="stat-item">
-      <div class="num">7+</div>
-      <div class="label">Tahun di Kemenkeu</div>
-    </div>
+    <div class="stat-item"><div class="num">3+</div><div class="label">Tahun sebagai Auditor</div></div>
+    <div class="stat-item"><div class="num">5+</div><div class="label">Sertifikat Profesional</div></div>
+    <div class="stat-item"><div class="num">2</div><div class="label">Penghargaan Kemenkeu</div></div>
+    <div class="stat-item"><div class="num">7+</div><div class="label">Tahun di Kemenkeu</div></div>
   </div>
 
   <!-- MAIN CONTENT -->
   <main class="container">
 
-    <!-- ABOUT -->
     <div class="card full-width about">
       <h2><span class="icon">&#128100;</span> About Me</h2>
-      <p>
-        Auditor di Inspektorat Jenderal Kementerian Keuangan dengan latar belakang interdisipliner di Akuntansi (PKN STAN) dan Sistem Informasi (Binus University). Memiliki pengalaman penugasan audit lintas unit secara mandiri dengan pendekatan risk-based audit.
-      </p>
-      <p>
-        Berpengalaman dalam pengembangan standar pengawasan CMCA (Continuous Monitoring & COntinuous Auditing), penilaian keamanan siber berbasis red teaming, serta tata kelola. Sebelumnya mengelola SDM dan manajemen talenta di lingkungan Inspektorat Jenderal selama empat tahun.
-      </p>
-      <p>
-        Percaya bahwa audit bukan sekadar menemukan masalah - melainkan menjaga kepecercayaan dan mendorong perbaikan yang berkelanjutan.
-      </p>
+      <p>Auditor di Inspektorat Jenderal Kementerian Keuangan dengan latar belakang interdisipliner di Akuntansi (PKN STAN) dan Sistem Informasi (Binus University). Memiliki pengalaman penugasan audit lintas unit secara mandiri dengan pendekatan risk-based audit.</p>
+      <p>Berpengalaman dalam pengembangan standar pengawasan CMCA (Continuous Monitoring & Continuous Auditing), penilaian keamanan siber berbasis red teaming, serta tata kelola TI. Sebelumnya mengelola SDM dan manajemen talenta di lingkungan Inspektorat Jenderal selama empat tahun.</p>
+      <p>Percaya bahwa audit bukan sekadar menemukan masalah — melainkan menjaga kepercayaan dan mendorong perbaikan yang berkelanjutan.</p>
     </div>
 
-    <!-- SKILLS -->
     <div class="card">
       <h2><span class="icon">&#9881;</span> Core Skills</h2>
       <div class="skill-grid">
         <span class="skill-tag">Risk-Based Audit</span>
-        <span class="skill-tag">Continuous Monitoring Continuous Auditing (CMCA)</span>
+        <span class="skill-tag">Continuous Monitoring & Auditing (CMCA)</span>
         <span class="skill-tag">Kerangka Pengendalian Internal</span>
         <span class="skill-tag">Penyusunan Laporan Audit</span>
         <span class="skill-tag">Manajemen Pemangku Kepentingan</span>
@@ -425,57 +209,23 @@
         <span class="skill-tag">Tata Kelola IT</span>
         <span class="skill-tag">Project Management Office (PMO)</span>
         <span class="skill-tag">Manajemen Talenta</span>
-        <span class="skill-tag">Human Resources</span>
       </div>
     </div>
 
-    <!-- CERTIFICATIONS -->
     <div class="card">
       <h2><span class="icon">&#127942;</span> Certifications</h2>
       <div class="cert-list">
-        <div class="cert-item">
-          <div class="cert-icon">&#128269;</div>
-          <div class="cert-info">
-            <h4>Auditor Pertama</h4>
-            <span>BPKP &middot; Aktif</span>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#128200;</div>
-          <div class="cert-info">
-            <h4>Certified Risk Management Officer (CRMO)</h4>
-            <span>LSPMR &middot; Aktif</span>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#128202;</div>
-          <div class="cert-info">
-            <h4>Certified Data Analytics (CertDA)</h4>
-            <span>IAI &middot; Aktif</span>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#9881;</div>
-          <div class="cert-info">
-            <h4>Project Management with Agile</h4>
-            <span>Aktif</span>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">&#128203;</div>
-          <div class="cert-info">
-            <h4>Brevet Pajak A&amp;B</h4>
-            <span>IAI &middot; Aktif</span>
-          </div>
-        </div>
+        <div class="cert-item"><div class="cert-icon">&#128269;</div><div class="cert-info"><h4>Auditor Pertama</h4><span>BPKP &middot; Aktif</span></div></div>
+        <div class="cert-item"><div class="cert-icon">&#128200;</div><div class="cert-info"><h4>Certified Risk Management Officer (CRMO)</h4><span>LSPMR &middot; Aktif</span></div></div>
+        <div class="cert-item"><div class="cert-icon">&#128202;</div><div class="cert-info"><h4>Certified Data Analytics (CertDA)</h4><span>IAI &middot; Aktif</span></div></div>
+        <div class="cert-item"><div class="cert-icon">&#9881;</div><div class="cert-info"><h4>Project Management with Agile</h4><span>Aktif</span></div></div>
+        <div class="cert-item"><div class="cert-icon">&#128203;</div><div class="cert-info"><h4>Brevet Pajak A&amp;B</h4><span>IAI &middot; Aktif</span></div></div>
       </div>
     </div>
 
-    <!-- EXPERIENCE -->
     <div class="card full-width" id="experience">
       <h2><span class="icon">&#128188;</span> Experience</h2>
       <div class="timeline">
-
         <div class="timeline-item">
           <div class="tl-dot"></div>
           <div class="tl-body">
@@ -485,50 +235,45 @@
             <p>Mengembangkan standar pengawasan CMCA, tools T-MAP, dan tergabung dalam Think Tank Tim Transformasi. Melakukan pengujian keamanan siber red teaming pada sistem kritis DJP dan penugasan audit lintas unit secara mandiri.</p>
           </div>
         </div>
-
         <div class="timeline-item">
           <div class="tl-dot"></div>
           <div class="tl-body">
             <h3>Data & Talent Management Officer</h3>
             <div class="org">Inspektorat Jenderal Kementerian Keuangan RI</div>
             <div class="period">2019 – 2023</div>
-            <p>Mengelola SDM end-to-end, dan menginisiasi standardisasi Individual Career Plan (ICP) pertama di tingkat Kementerian Keuangan. Inisiasi ini meraih Pengheragaan Nagara Dana Ksatria Inspirasi Individu dari Menteri Keuangan (2024 & 2025).</p>
+            <p>Mengelola SDM end-to-end dan menginisiasi standardisasi Individual Career Plan (ICP) pertama di tingkat Kementerian Keuangan. Meraih Penghargaan Nagara Dana Ksatria Inspirasi Individu dari Menteri Keuangan (2024 & 2025).</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- CONTACT -->
     <div class="card full-width" id="contact">
       <h2><span class="icon">&#9993;</span> Contact</h2>
       <div class="contact-list">
-        <div class="contact-item">
-          <div class="ci-icon">&#128231;</div>
-          <span><a href="mailto:mirwan.alkhatiri@gmail.com">mirwan.alkhatiri@gmail.com</a></span>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">&#127757;</div>
-          <span>Jakarta Timur, DKI Jakarta</span>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">&#128101;</div>
-          <span><a href="https://linkedin.com/in/mirwan-alkhatiri" target="_blank">linkedin.com/in/mirwan-alkhatiri</a></span>
-        </div>
+        <div class="contact-item"><div class="ci-icon">&#128231;</div><span><a href="mailto:mirwan.alkhatiri@gmail.com">mirwan.alkhatiri@gmail.com</a></span></div>
+        <div class="contact-item"><div class="ci-icon">&#127757;</div><span>Jakarta Timur, DKI Jakarta</span></div>
+        <div class="contact-item"><div class="ci-icon">&#128101;</div><span><a href="https://linkedin.com/in/mirwan-alkhatiri" target="_blank">linkedin.com/in/mirwan-alkhatiri</a></span></div>
       </div>
     </div>
 
   </main>
 
-  <footer>
-    &copy; 2026 Mirwan Alkhatiri. All rights reserved.
-  </footer>
+  <footer>&copy; 2026 Mirwan Alkhatiri. All rights reserved.</footer>
 
 <script>
   function toggleMode() {
     document.body.classList.toggle('light-mode');
-    const btn = document.getElementById('modeBtn');
-    btn.textContent = document.body.classList.contains('light-mode') ? '🌙 Dark Mode' : '☀️ Light Mode';
+    document.querySelectorAll('#modeBtn').forEach(btn => {
+      btn.textContent = document.body.classList.contains('light-mode') ? '🌙 Dark Mode' : '☀️ Light Mode';
+    });
   }
+
+  const hero = document.querySelector('.hero');
+  const nav = document.getElementById('stickyNav');
+
+  window.addEventListener('scroll', () => {
+    nav.style.display = window.scrollY > hero.offsetHeight - 60 ? 'flex' : 'none';
+  });
 </script>
 
 </body>

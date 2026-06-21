@@ -75,33 +75,61 @@
     .btn-primary { background: var(--accent); color: var(--navy); }
     .btn-outline  { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
 
-    .stats { display: flex; flex-wrap: wrap; justify-content: center; background: var(--white); border-bottom: 1px solid var(--border); }
-    .stat-item { flex: 1 1 100px; padding: 28px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 58px;
+      z-index: 998;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: top 0.3s;
+    }
+
+    .stat-item {
+      flex: 1 1 120px;
+      padding: 12px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
     .stat-item:last-child { border-right: none; }
-    .stat-item .num { font-size: 2rem; font-weight: 700; color: var(--accent); }
-    .stat-item .label { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+    .stat-item .num {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-item .label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
 
     .container { max-width: 960px; margin: 0 auto; padding: 60px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     @media (max-width: 680px) {
-  .container { grid-template-columns: 1fr; padding: 32px 16px; }
+    .container { grid-template-columns: 1fr; padding: 32px 16px; }
 
-  .hero { padding: 60px 16px 40px; }
-  .hero h1 { font-size: 1.8rem; }
-  .hero .tagline { font-size: 0.95rem; }
-  .hero .title-badge { font-size: 0.8rem; letter-spacing: 0.5px; }
+    .hero { padding: 60px 16px 40px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero .tagline { font-size: 0.95rem; }
+    .hero .title-badge { font-size: 0.8rem; letter-spacing: 0.5px; }
 
-  .avatar { width: 90px; height: 90px; }
+    .avatar { width: 90px; height: 90px; }
 
-  .cta-row { flex-direction: column; align-items: center; }
-  .btn { width: 100%; max-width: 260px; text-align: center; }
+    .cta-row { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 260px; text-align: center; }
 
-  .stat-item { flex: 1 1 50%; }
+    .stat-item { flex: 1 1 50%; }
 
-  .card { padding: 20px 16px; }
+    .card { padding: 20px 16px; }
 
-  #stickyNav { padding: 8px 16px; }
-  #stickyNav > div:first-child > div > div:last-child { font-size: 0.65rem; }
-}
+    #stickyNav { padding: 8px 16px; }
+    #stickyNav > div:first-child > div > div:last-child { font-size: 0.65rem; }
+  }
 
     .card { background: var(--white); border-radius: 12px; padding: 32px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
     .card.full-width { grid-column: 1 / -1; }
@@ -374,9 +402,9 @@
       </div>
     </div>
 
-  <!-- PRESTASI -->
+  <!-- ACHIEVEMENTS -->
     <div class="card full-width">
-      <h2><span class="icon">&#127941;</span> Prestasi</h2>
+      <h2><span class="icon">&#127941;</span> Achievements</h2>
       <div class="timeline">
 
         <div class="timeline-item">
@@ -418,28 +446,49 @@
             <p>Peringkat pertama dalam pelatihan Teknik Audit Berbantuan Komputer berbasis SQL.</p>
           </div>
         </div>
-
-        <div class="timeline-item">
-          <div class="tl-dot"></div>
-          <div class="tl-body">
-            <h3>Juara 4 Nasional — Kompetisi Keamanan Siber ACAD-CSIRT</h3>
-            <div class="org">Nasional</div>
-            <div class="period">2025</div>
-            <p>Meraih peringkat 4 nasional dalam kompetisi keamanan siber tingkat nasional.</p>
-          </div>
-        </div>
-
       </div>
     </div>
 
-    <div class="card full-width" id="contact">
+    <!-- CONTACT -->
+    <div class="card full-width" id="contact" style="border-radius:0;border-left:none;border-right:none;margin:0 -24px;">
       <h2><span class="icon">&#9993;</span> Contact</h2>
-      <div class="contact-list">
-        <div class="contact-item"><div class="ci-icon">&#128231;</div><span><a href="mailto:mirwan.alkhatiri@gmail.com">mirwan.alkhatiri@gmail.com</a></span></div>
-        <div class="contact-item"><div class="ci-icon">&#128231;</div><span><a href="https://github.com/mirwan55" target="_blank">github.com/mirwan55</a></span></div>
-        <div class="contact-item"><div class="ci-icon">&#128101;</div><span><a href="https://linkedin.com/in/mirwan-alkhatiri" target="_blank">linkedin.com/in/mirwan-alkhatiri</a></span></div>
-        <div class="contact-item"><div class="ci-icon">&#128101;</div><span><a href="https://medium.com/@mirwan.alkhatiri" target="_blank">medium.com/@mirwan.alkhatiri</a></span></div>
-        <div class="contact-item"><div class="ci-icon">&#127757;</div><span>Jakarta Timur, DKI Jakarta</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+
+        <!-- Kolom 1 -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:mirwan.alkhatiri@gmail.com" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--light);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.15s;">
+            <div>
+              <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">Email</div>
+              <div style="font-size:0.88rem;font-weight:600;color:var(--accent);">mirwan.alkhatiri@gmail.com</div>
+            </div>
+            <span style="color:var(--accent);font-size:1rem;">↗</span>
+          </a>
+          <a href="https://linkedin.com/in/mirwan-alkhatiri" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--light);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.15s;">
+            <div>
+              <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">LinkedIn</div>
+              <div style="font-size:0.88rem;font-weight:600;color:var(--accent);">linkedin.com/in/mirwan-alkhatiri</div>
+            </div>
+            <span style="color:var(--accent);font-size:1rem;">↗</span>
+          </a>
+        </div>
+
+        <!-- Kolom 2 -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="https://github.com/mirwan55" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--light);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.15s;">
+            <div>
+              <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">GitHub</div>
+              <div style="font-size:0.88rem;font-weight:600;color:var(--accent);">github.com/mirwan55</div>
+            </div>
+            <span style="color:var(--accent);font-size:1rem;">↗</span>
+          </a>
+          <a href="https://medium.com/@mirwan.alkhatiri" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--light);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.15s;">
+            <div>
+              <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;">Medium</div>
+              <div style="font-size:0.88rem;font-weight:600;color:var(--accent);">medium.com/@mirwan.alkhatiri</div>
+            </div>
+            <span style="color:var(--accent);font-size:1rem;">↗</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -461,6 +510,15 @@
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
+    }
+  });
+
+  const stats = document.querySelector('.stats');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      stats.style.top = '58px';
+    } else {
+      stats.style.top = '58px';
     }
   });
 </script>
